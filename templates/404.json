@@ -1,0 +1,19 @@
+{
+    "sections": {
+      "main": {
+        "type": "404-template",
+        "settings": {
+          "title": "Page Not Found",
+          "description": "The page you are looking for doesn't exist or has been moved. You can go back to the homepage or check out some of our popular products below."
+        }
+      },
+      "popular_products": {
+        "type": "product-grid",
+        "settings": {
+          "title": "Popular Products"
+        }
+      }
+    },
+    "order": ["main", "popular_products"]
+  }
+  
