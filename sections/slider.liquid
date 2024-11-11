@@ -1,0 +1,106 @@
+{% schema %}
+    {
+      "name": "Clothing Image Slider",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slider_image_1",
+          "label": "Slider Image 1",
+          "default": "https://via.placeholder.com/800x600/FF5733/FFFFFF?text=Clothing+1"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image_2",
+          "label": "Slider Image 2",
+          "default": "https://via.placeholder.com/800x600/33B5FF/FFFFFF?text=Clothing+2"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image_3",
+          "label": "Slider Image 3",
+          "default": "https://via.placeholder.com/800x600/9C27B0/FFFFFF?text=Clothing+3"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_image_4",
+          "label": "Slider Image 4",
+          "default": "https://via.placeholder.com/800x600/FFC107/FFFFFF?text=Clothing+4"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "category": "Custom"
+        }
+      ]
+    }
+    {% endschema %}
+    
+    <!-- Swiper Slider HTML -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="{{ section.settings.slider_image_1 | img_url: 'original' }}" alt="Clothing Image 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ section.settings.slider_image_2 | img_url: 'original' }}" alt="Clothing Image 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ 'D-8A-3_5.jpg' | asset_url }}" alt="Clothing Image 3">
+        </div>
+        <div class="swiper-slide">
+          <img src="{{ 'D-8A-8.jpg' | asset_url }}" alt="Clothing Image 4">
+        </div>
+      </div>
+    
+      <!-- Pagination and Navigation Controls -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    
+    <!-- Include Swiper JS and CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+    
+    <style>
+        /* Ensure the swiper container takes full width */
+        .swiper-container {
+          width: 100%;
+          height: auto;
+          margin-top: 80px; /* Add margin to the top to prevent overlap with navbar */
+        }
+      
+        /* Make the images cover the full width of the swiper slide */
+        .swiper-slide img {
+          width: 100%; /* Full width of the container */
+          height: auto; /* Maintain aspect ratio */
+          object-fit: cover; /* Ensure image covers the area, maintaining aspect ratio */
+        }
+      
+        /* Optional: Adjust slider height for better image display */
+        .swiper-container {
+          height: 500px; /* Adjust to your desired height */
+        }
+      
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      </style>
+      
